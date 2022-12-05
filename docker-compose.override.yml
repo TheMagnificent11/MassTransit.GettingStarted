@@ -1,0 +1,7 @@
+version: '3.4'
+
+services:
+  masstransit.gettingstarted.worker:
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+

@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "None",
+      "serviceActions": {
+        "masstransit.gettingstarted.worker": "StartDebugging",
+        "masstransit.gettingstarted.consumer": "StartDebugging",
+        "rabbitmq": "StartWithoutDebugging"
+      }
+    }
+  }
+}

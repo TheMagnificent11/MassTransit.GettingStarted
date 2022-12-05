@@ -11,12 +11,11 @@ public static class Program
             {
                 services.AddMassTransit(x =>
                 {
-                    x.AddConsumer<ContractConsumer>();
+                    x.AddConsumer<RandomEventConsumer>();
 
-                    x.UsingInMemory((context, cfg) =>
-                    {
-                        cfg.ConfigureEndpoints(context);
-                    });
+                    x.SetKebabCaseEndpointNameFormatter();
+
+                    x.UsingRabbitMq((context, cfg) => cfg.ConfigureEndpoints(context));
                 });
             })
             .Build()

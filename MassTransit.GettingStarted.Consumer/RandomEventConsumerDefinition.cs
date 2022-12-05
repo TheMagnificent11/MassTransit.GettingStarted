@@ -2,11 +2,11 @@ using MassTransit;
 
 namespace MassTransit.GettingStarted.Consumer;
 
-public class ContractConsumerDefinition : ConsumerDefinition<ContractConsumer>
+public class RandomEventConsumerDefinition : ConsumerDefinition<RandomEventConsumer>
 {
     protected override void ConfigureConsumer(
         IReceiveEndpointConfigurator endpointConfigurator, 
-        IConsumerConfigurator<ContractConsumer> consumerConfigurator)
+        IConsumerConfigurator<RandomEventConsumer> consumerConfigurator)
     {
         endpointConfigurator.UseMessageRetry(r => r.Intervals(500, 1000));
     }

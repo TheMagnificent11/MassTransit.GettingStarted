@@ -1,6 +1,4 @@
 using System.Reflection;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 
 namespace MassTransit.GettingStarted.Worker;
 
@@ -29,10 +27,9 @@ public static class Program
                     x.AddSagas(entryAssembly);
                     x.AddActivities(entryAssembly);
 
-                    x.UsingInMemory((context, cfg) =>
-                    {
-                        cfg.ConfigureEndpoints(context);
-                    });
+                    x.UsingRabbitMq();
                 });
+
+                services.AddHostedService<RandomEventWorker>();
             });
 }
